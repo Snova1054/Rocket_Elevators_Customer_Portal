@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj": {}
+    "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj": {
+    "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj",
+        "projectUniqueName": "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj",
         "projectName": "Rocket_Elevators_Customer_Portal",
-        "projectPath": "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj",
+        "projectPath": "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj",
         "packagesPath": "C:\\Users\\istar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal\\obj\\",
+        "outputPath": "C:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -65,6 +65,14 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[5.0.10, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             }
           },
           "imports": [
@@ -85,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
