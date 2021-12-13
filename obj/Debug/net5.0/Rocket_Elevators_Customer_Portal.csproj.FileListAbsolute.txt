@@ -97,3 +97,4 @@ C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\bin\Debug\net5
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\bin\Debug\net5.0\Renci.SshNet.dll
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\bin\Debug\net5.0\SshNet.Security.Cryptography.dll
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll
+C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Views\Home\Home.cshtml.g.cs
