@@ -4,15 +4,8 @@ using Rocket_Elevators_Customer_Portal.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text.Json;
-using System.Net.Http.Json;
 
 namespace Rocket_Elevators_Customer_Portal.Controllers
 {
@@ -25,16 +18,9 @@ namespace Rocket_Elevators_Customer_Portal.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
-            List<Building> stringTask = await client.GetFromJsonAsync<List<Building>>("https://localhost:5001/api/buildings");
-
-            return View(stringTask);
+            return View();
         }
 
         public IActionResult Privacy()
