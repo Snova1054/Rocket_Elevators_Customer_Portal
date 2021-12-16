@@ -6,14 +6,17 @@
 @using System.Net.Http;
 @using System.Net.Http.Headers;
 @using System.Net.Http.Json;
-@model IEnumerable<Rocket_Elevators_Customer_Portal.Models.Building>
+@model IEnumerable<Tuple<Rocket_Elevators_Customer_Portal.Models.Building, Rocket_Elevators_Customer_Portal.Models.Battery, Rocket_Elevators_Customer_Portal.Models.Column, Rocket_Elevators_Customer_Portal.Models.Elevator>>
 @{
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Accept.Clear();
     client.DefaultRequestHeaders.Accept.Add(
         new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
     client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
-    List<Building> stringTask = await client.GetFromJsonAsync<List<Building>>("https://localhost:5001/api/buildings");
+    List<Building> buildings = await client.GetFromJsonAsync<List<Building>>("https://localhost:5001/api/buildings");
+    List<Battery> batteries = await client.GetFromJsonAsync<List<Battery>>("https://localhost:5001/api/batteries");
+    List<Column> columns = await client.GetFromJsonAsync<List<Column>>("https://localhost:5001/api/columns");
+    List<Elevator> elevators = await client.GetFromJsonAsync<List<Elevator>>("https://localhost:5001/api/elevators");
 
 }
 
@@ -21,66 +24,375 @@
     <h1 class="display-4">Welcome my beloved Customers</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-<div class="d-flex justify-content-center">
-    <table class="table table-hover table-bordered table-striped table-dark">
-        <thead>
-            <tr>
-                <th>
-                    ID
-                </th>
-                <th>
-                    Building Admin
-                </th>
-                <th>
-                    Building Phone
-                </th>
-                <th>
-                    Building Email
-                </th>
-                <th>
-                    Building Technician
-                </th>
-                <th>
-                    Technician Email
-                </th>
-                <th>
-                    Technician Phone
-                </th>
-                @*<th></th>*@
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in stringTask)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.full_name_of_the_building_administrator)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.email_of_the_administrator_of_the_building)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.phone_number_of_the_building_administrator)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.full_name_of_the_technical_contact_for_the_building)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.technical_contact_email_for_the_building)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.technical_contact_phone_for_the_building)
-                    </td>
-                    @*<td>
-                            <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-                        </td>*@
-                </tr>
-            }
-        </tbody>
-    </table>
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Buildings</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-battery-tab" data-toggle="pill" href="#pills-battery" role="tab" aria-controls="pills-battery" aria-selected="false">Batteries</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-column-tab" data-toggle="pill" href="#pills-column" role="tab" aria-controls="pills-column" aria-selected="false">Columns</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-elevator-tab" data-toggle="pill" href="#pills-elevator" role="tab" aria-controls="pills-elevator" aria-selected="false">Elevators</a>
+    </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="d-flex justify-content-center">
+            <table class="table table-hover table-bordered table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Building Admin
+                        </th>
+                        <th>
+                            Building Phone
+                        </th>
+                        <th>
+                            Building Email
+                        </th>
+                        <th>
+                            Building Technician
+                        </th>
+                        <th>
+                            Technician Email
+                        </th>
+                        <th>
+                            Technician Phone
+                        </th>
+                        <th>
+                            Created At
+                        </th>
+                        <th>
+                            Updated At
+                        </th>
+                        <th>
+                            Customer #
+                        </th>
+                        <th>
+                            Address #
+                        </th>
+                        @*<th></th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in buildings)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.full_name_of_the_building_administrator)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email_of_the_administrator_of_the_building)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.phone_number_of_the_building_administrator)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.full_name_of_the_technical_contact_for_the_building)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.technical_contact_email_for_the_building)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.technical_contact_phone_for_the_building)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.created_at)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.updated_at)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.customer_id)
+                            </td>
+                            <td>
+                                <a href="#">@Html.DisplayFor(modelItem => item.address_id)</a>
+                            </td>
+                            @*<td>
+                                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                                </td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-battery" role="tabpanel" aria-labelledby="pills-battery-tab">
+        <div class="d-flex justify-content-center">
+            <table class="table table-hover table-bordered table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Commissioned
+                        </th>
+                        <th>
+                            Last Inspection
+                        </th>
+                        <th>
+                            Certificate #
+                        </th>
+                        <th>
+                            Information
+                        </th>
+                        <th>
+                            Notes
+                        </th>
+                        <th>
+                            Created At
+                        </th>
+                        <th>
+                            Updated At
+                        </th>
+                        <th>
+                            Building #
+                        </th>
+                        @*<th></th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in batteries)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.entity_type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.date_of_commissioning)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.date_of_last_inspection)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.certificate_of_operations)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.information)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.notes)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.created_at)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.updated_at)
+                            </td>
+                            <td>
+                                <a href="#">@Html.DisplayFor(modelItem => item.building_id)</a>
+                            </td>
+                            @*<td>
+                                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                                </td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-column" role="tabpanel" aria-labelledby="pills-column-tab">
+        <div class="d-flex justify-content-center">
+            <table class="table table-hover table-bordered table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            # Floors
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Information
+                        </th>
+                        <th>
+                            Notes
+                        </th>
+                        <th>
+                            Created At
+                        </th>
+                        <th>
+                            Updated At
+                        </th>
+                        <th>
+                            Battery #
+                        </th>
+                        @*<th></th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in columns)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.entity_type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.number_of_floors_served)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.information)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.notes)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.created_at)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.updated_at)
+                            </td>
+                            <td>
+                                <a href="#">@Html.DisplayFor(modelItem => item.battery_id)</a>
+                            </td>
+                            @*<td>
+                                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                            </td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-elevator" role="tabpanel" aria-labelledby="pills-elevator-tab">
+        <div class="d-flex justify-content-center">
+            <table class="table table-hover table-bordered table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Serial #
+                        </th>
+                        <th>
+                            Model
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Commissioned
+                        </th>
+                        <th>
+                            Last Inspection
+                        </th>
+                        <th>
+                            Certificate
+                        </th>
+                        <th>
+                            Information
+                        </th>
+                        <th>
+                            Notes
+                        </th>
+                        <th>
+                            Created At
+                        </th>
+                        <th>
+                            Updated At
+                        </th>
+                        <th>
+                            Column #
+                        </th>
+                        @*<th></th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in elevators)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.serial_number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.entity_type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date_of_commissioning)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date_of_last_inspection)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.certificate_of_inspection)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.information)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.created_at)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.updated_at)
+                        </td>
+                        <td>
+                            <a href="#">@Html.DisplayFor(modelItem => item.column_id)</a>
+                        </td>
+                        @*<td>
+            <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+        </td>*@
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
