@@ -260,7 +260,7 @@
                             Type
                         </th>
                         <th>
-                            # Floors
+                            Floors
                         </th>
                         <th>
                             Status
@@ -278,7 +278,7 @@
                             Updated At
                         </th>
                         <th>
-                            Battery #
+                            Battery#
                         </th>
                         @*<th></th>*@
                     </tr>
@@ -369,6 +369,9 @@
                         <th>
                             Column #
                         </th>
+                        <th>
+                            Intervention
+                        </th>
                         @*<th></th>*@
                     </tr>
                 </thead>
@@ -414,6 +417,9 @@
                             </td>
                             <td>
                                 <a href="#" onclick="showColumn();">@Html.DisplayFor(modelItem => item.column_id)</a>
+                            </td>
+                            <td>
+                                <a href="#" onclick="prepareIntervention();"> Created an Intervention</a>
                             </td>
                             @*<td>
                                     <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
@@ -507,5 +513,9 @@
     }
     function showColumn() {
         $('#pills-tab a[href="#pills-column"]').tab('show')
+    }
+    function prepareIntervention() {
+        console.log("welcome hello");
+        @*$('#pills-tab a[href="#pills-intervention"]').tab('show')*@
     }
 </script>
