@@ -54,7 +54,7 @@
 </div>
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Buildings</a>
+        <a class="nav-link active" id="pills-building-tab" data-toggle="pill" href="#pills-building" role="tab" aria-controls="pills-building" aria-selected="true">Buildings</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" id="pills-battery-tab" data-toggle="pill" href="#pills-battery" role="tab" aria-controls="pills-battery" aria-selected="false">Batteries</a>
@@ -65,9 +65,12 @@
     <li class="nav-item">
         <a class="nav-link" id="pills-elevator-tab" data-toggle="pill" href="#pills-elevator" role="tab" aria-controls="pills-elevator" aria-selected="false">Elevators</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-intervention-tab" data-toggle="pill" href="#pills-intervention" role="tab" aria-controls="pills-intervention" aria-selected="false">Create an Intervention</a>
+    </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
         <div class="d-flex justify-content-center">
             <table class="table table-hover table-bordered table-striped table-dark">
                 <thead>
@@ -232,7 +235,7 @@
                                 @Html.DisplayFor(modelItem => item.updated_at)
                             </td>
                             <td>
-                                <a href="#">@Html.DisplayFor(modelItem => item.building_id)</a>
+                                <a href="#" onclick="showBuilding();">@Html.DisplayFor(modelItem => item.building_id)</a>
                             </td>
                             @*<td>
                                     <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
@@ -309,7 +312,7 @@
                                 @Html.DisplayFor(modelItem => item.updated_at)
                             </td>
                             <td>
-                                <a href="#">@Html.DisplayFor(modelItem => item.battery_id)</a>
+                                <a href="#" onclick="showBattery();">@Html.DisplayFor(modelItem => item.battery_id)</a>
                             </td>
                             @*<td>
                                     <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
@@ -410,7 +413,7 @@
                                 @Html.DisplayFor(modelItem => item.updated_at)
                             </td>
                             <td>
-                                <a href="#">@Html.DisplayFor(modelItem => item.column_id)</a>
+                                <a href="#" onclick="showColumn();">@Html.DisplayFor(modelItem => item.column_id)</a>
                             </td>
                             @*<td>
                                     <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
@@ -423,4 +426,86 @@
             </table>
         </div>
     </div>
+    <div class="tab-pane fade" id="pills-intervention" role="tabpanel" aria-labelledby="pills-intervention-tab">
+        <div>
+            <div class="d-flex justify-content-center">
+                <h1 class="display-3">Intervention Page</h1>
+            </div>
+            <hr style="width:70%">
+            <form>
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row">
+                    <div class="col">
+                        <label for="buildings"><strong>Building</strong></label>
+                        <select class="custom-select" name="buildings " id="buildings" required>
+                            <option value="">Choose a Building</option>
+                            @foreach (var b in clientBuildings)
+                            {
+                                <option value=@b>building#@b.id</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="batteries"><strong>Battery</strong></label>
+                        <select class="custom-select" name="batteries " id="batteries" required>
+                            <option value="">Choose a Battery</option>
+                            @foreach (var b in clientBatteries)
+                            {
+                                <option value=@b>battery#@b.id</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="columns"><strong>Column</strong></label>
+                        <select class="custom-select" name="columns " id="columns">
+                            <option value="">None</option>
+                            @foreach (var c in clientColumns)
+                            {
+                                <option value=@c>columns#@c.id</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label for="elevators"><strong>Elevator</strong></label>
+                            <select class="custom-select" name="elevators " id="elevators">
+                                <option value="">None</option>
+                                @foreach (var e in clientElevators)
+                                {
+                                    <option value=@e>elevators#@e.id</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!-- Message input -->
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label" for="reports"><strong>Report</strong></label>
+                        <textarea class="form-control" id="reports" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mb-4">Submit Intervention</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+<script>
+    function showBuilding() {
+        $('#pills-tab a[href="#pills-building"]').tab('show')
+    }
+    function showBattery() {
+        $('#pills-tab a[href="#pills-battery"]').tab('show')
+    }
+    function showColumn() {
+        $('#pills-tab a[href="#pills-column"]').tab('show')
+    }
+</script>
