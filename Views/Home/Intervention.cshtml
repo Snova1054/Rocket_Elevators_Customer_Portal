@@ -1,8 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Intervention Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to your HOME my beloved Customers</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+@{
+    foreach( b in buildings){
+        <p>
+             b
+        </p>
+    }
+}

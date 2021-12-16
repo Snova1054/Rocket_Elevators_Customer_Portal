@@ -6,11 +6,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+
+
 
 namespace Rocket_Elevators_Customer_Portal.Controllers
 {
     public class HomeController : Controller
     {
+        //SignInManager<IdentityUser> SignInManager;
+        //UserManager<IdentityUser> UserManager;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -28,7 +33,12 @@ namespace Rocket_Elevators_Customer_Portal.Controllers
             return View();
         }
 
-        public IActionResult Home()
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public IActionResult Intervention()
         {
             return View();
         }

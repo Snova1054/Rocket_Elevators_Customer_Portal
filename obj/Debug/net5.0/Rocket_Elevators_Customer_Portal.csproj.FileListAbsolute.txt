@@ -97,7 +97,6 @@ C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\bin\Debug\net5
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\bin\Debug\net5.0\Renci.SshNet.dll
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\bin\Debug\net5.0\SshNet.Security.Cryptography.dll
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll
-C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Views\Home\Home.cshtml.g.cs
 C:\Users\iStar\Documents\CodeBoxx-RocketElevator\week-11\Rocket_Elevators_Customer_Portal\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\iStar\Documents\CodeBoxx-RocketElevator\week-11\Rocket_Elevators_Customer_Portal\bin\Debug\net5.0\appsettings.json
 C:\Users\iStar\Documents\CodeBoxx-RocketElevator\week-11\Rocket_Elevators_Customer_Portal\bin\Debug\net5.0\Rocket_Elevators_Customer_Portal.StaticWebAssets.xml
@@ -356,3 +355,5 @@ C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Views\Home\Dashboard.cshtml.g.cs
+C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Views\Home\Intervention.cshtml.g.cs
