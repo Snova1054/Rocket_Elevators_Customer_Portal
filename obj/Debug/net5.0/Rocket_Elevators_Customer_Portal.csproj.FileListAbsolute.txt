@@ -356,4 +356,3 @@ C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Views\Home\Dashboard.cshtml.g.cs
-C:\Users\istar\Documents\11-week\Rocket_Elevators_Customer_Portal\obj\Debug\net5.0\Razor\Views\Home\Intervention.cshtml.g.cs

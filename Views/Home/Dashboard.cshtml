@@ -10,7 +10,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-@model IEnumerable<Tuple<Rocket_Elevators_Customer_Portal.Models.Building, Rocket_Elevators_Customer_Portal.Models.Battery, Rocket_Elevators_Customer_Portal.Models.Column, Rocket_Elevators_Customer_Portal.Models.Elevator>>
+@model Tuple<IEnumerable<Tuple<Rocket_Elevators_Customer_Portal.Models.Building, Rocket_Elevators_Customer_Portal.Models.Battery, Rocket_Elevators_Customer_Portal.Models.Column, Rocket_Elevators_Customer_Portal.Models.Elevator>>, Rocket_Elevators_Customer_Portal.Views.Home.DashboardModel.InputModel >
 @{
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Accept.Clear();
@@ -438,9 +438,17 @@
                 <h1 class="display-3">Intervention Page</h1>
             </div>
             <hr style="width:70%">
-            <form>
+            <form id="account" method="post" target="_blank">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
-                <div class="row">
+                 <div class="row">
+                    <div class="col">
+                        <label for="author"><strong>Author</strong></label>
+                        <input class="form-control" id="author" type="text" value=@User.Identity.Name placeholder=@User.Identity.Name readonly>
+                    </div>
+                    <div class="col">
+                        <label for="customerId"><strong>Customer</strong></label>
+                        <input class="form-control" id="customerId" type="text" value=@customerID placeholder=@customerID readonly>
+                    </div>
                     <div class="col">
                         <label for="buildings"><strong>Building</strong></label>
                         <select class="custom-select" name="buildings " id="buildings" required>
@@ -498,7 +506,7 @@
                 <!-- Submit button -->
                 <br>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary mb-4">Submit Intervention</button>
+                    <button type="submit" class="btn btn-primary mb-4" onclick="sendIntervention()">Submit Intervention</button>
                 </div>
             </form>
         </div>
@@ -517,5 +525,40 @@
     function prepareIntervention() {
         console.log("welcome hello");
         @*$('#pills-tab a[href="#pills-intervention"]').tab('show')*@
+    }
+    function sendIntervention() {
+        var author = document.getElementById("author").value;
+        var customerId = document.getElementById("customerId").value;
+        var buildingId = document.getElementById("buildings").value;
+        var batteryId = document.getElementById("batteries").value;
+        var columnId = document.getElementById("columns").value;
+        var elevatorId = document.getElementById("elevators").value;
+        var report = document.getElementById("reports").value;
+        const intervention = {
+            "author": 1,
+            "start_date": "2021-08-24 14:00:21",
+            "end_date": "2021-08-24 14:00:21",
+            "result": "Incomplete",
+            "report": "123",
+            "status": "Pending",
+            "customer_id": 1,
+            "building_id": 1,
+            "battery_id": 1,
+            "column_id": 1,
+            "elevator_id": 1,
+            "employee_id": 1
+        };
+        const putMethod = {
+            method: 'POST', // Method itself
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8' // Indicates the content
+            },
+            body: JSON.stringify(intervention) // We send data in JSON format
+        }
+        // make the HTTP put request using fetch api
+        fetch("https://hidden-woodland-68127.herokuapp.com/api/interventions", putMethod)
+            .then(response => response.json())
+            .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
+            .catch(err => console.log(err)) // Do something with the error
     }
 </script>
