@@ -15669,11 +15669,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\Home\\Intervention.cshtml",
-      "TargetPath": "Views\\Home\\Intervention.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
