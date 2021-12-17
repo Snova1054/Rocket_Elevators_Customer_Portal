@@ -13,6 +13,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
+using System.Net.Http.Headers;
+
 
 namespace Rocket_Elevators_Customer_Portal.Areas.Identity.Pages.Account
 {
@@ -75,6 +78,17 @@ namespace Rocket_Elevators_Customer_Portal.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+                client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+                var stringTask = client.GetStringAsync("https://restapirocketelevator.azurewebsites.net/api/customers/" + Input.Email);
+                string emailExist = await stringTask;
+                if (emailExist == "0")
+                {
+                    return Page();
+                }
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
