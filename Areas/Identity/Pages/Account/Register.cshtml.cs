@@ -83,7 +83,7 @@ namespace Rocket_Elevators_Customer_Portal.Areas.Identity.Pages.Account
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
                 client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
-                var stringTask = client.GetStringAsync("https://restapirocketelevator.azurewebsites.net/api/customers/" + Input.Email);
+                var stringTask = client.GetStringAsync("https://hidden-woodland-68127.herokuapp.com/api/customers/" + Input.Email);
                 string emailExist = await stringTask;
                 if (emailExist == "0")
                 {
