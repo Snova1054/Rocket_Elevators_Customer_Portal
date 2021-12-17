@@ -10,7 +10,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-@model Tuple<IEnumerable<Tuple<Rocket_Elevators_Customer_Portal.Models.Building, Rocket_Elevators_Customer_Portal.Models.Battery, Rocket_Elevators_Customer_Portal.Models.Column, Rocket_Elevators_Customer_Portal.Models.Elevator>>, Rocket_Elevators_Customer_Portal.Views.Home.DashboardModel.InputModel >
+@model Tuple<IEnumerable<Tuple<Rocket_Elevators_Customer_Portal.Models.Building, Rocket_Elevators_Customer_Portal.Models.Battery, Rocket_Elevators_Customer_Portal.Models.Column, Rocket_Elevators_Customer_Portal.Models.Elevator>>, Rocket_Elevators_Customer_Portal.Views.Home.DashboardModel.InputModel>
 @{
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Accept.Clear();
@@ -48,7 +48,99 @@
 
 
 }
+<script>
+    function showBuilding() {
+        $('#pills-tab a[href="#pills-building"]').tab('show')
+    }
+    function showBattery() {
+        $('#pills-tab a[href="#pills-battery"]').tab('show')
+    }
+    function showColumn() {
+        $('#pills-tab a[href="#pills-column"]').tab('show')
+    }
+    function prepareIntervention() {
+        console.log("welcome hello people");
+        @*$('#pills-tab a[href="#pills-intervention"]').tab('show')*@
+    }
+    function sendIntervention() {
+        var author = document.getElementById("author").value;
+        var customerId = document.getElementById("customerId").value;
+        var buildingId = document.getElementById("buildings").value;
+        var batteryId = document.getElementById("batteries").value;
+        var columnId = document.getElementById("columns").value;
+        var elevatorId = document.getElementById("elevators").value;
+        var report = document.getElementById("reports").value;
+        const intervention = {
+            "author": "danidanidanidani",
+            "start_date": "2018-03-22T11:32:08",
+            "end_date": "2018-03-22T11:32:08",
+            "result": "Incomplete",
+            "report": "report",
+            "status": "Pending",
+            "customer_id": 1,
+            "building_id": 1,
+            "battery_id": 1,
+            "column_id": 1,
+            "elevator_id": 1,
+            "employee_id": 1
+        };
 
+
+        console.log("are you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you here");
+        const putMethod = {
+            method: 'POST', // Method itself
+        }
+        var interventionJson = JSON.stringify(intervention);
+        fetch(`/Home/Dashboard?interventionString=${intervention}`, putMethod)
+
+        console.log("wow pogo 2")
+
+        //var yes = JSON.stringify(intervention);
+        @*$.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                author: "author",
+                start_date: "2018-03-22T11:32:08",
+                end_date: "2018-03-22T11:32:08",
+                result: "Incomplete",
+                report: "report",
+                status: "Pending",
+                customer_id: 1,
+                building_id: 1,
+                battery_id: 1,
+                column_id: 1,
+                elevator_id: 1,
+                employee_id: 1
+            },
+            url: '/Home/Dashboard',
+            contentType: 'application/json',
+            success: function (response) {
+                alert("criss")
+                console.log("yes");
+            },
+            error: function (response) {
+                alert("pogo")
+                console.log("yes but no");
+            }
+        });*@
+
+        @*console.log("wow pogo");*@
+
+        @*const putMethod = {
+            method: 'POST', // Method itself
+            headers: new Headers({
+                'Content-Type': 'application/json' // Indicates the content
+            }),
+            body: JSON.stringify(intervention) // We send data in JSON format
+        }
+        // make the HTTP post request using fetch api
+        fetch("https://hidden-woodland-68127.herokuapp.com/api/interventions", putMethod)
+            .then(response => response.json())
+            .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
+            .catch(err => console.log(err)) // Do something with the error*@
+    }
+</script>
 <div class="text-center d-flex justify-content-center">
     <h1 class="display-4">Welcome @User.Identity.Name!</h1>
 </div>
@@ -438,127 +530,75 @@
                 <h1 class="display-3">Intervention Page</h1>
             </div>
             <hr style="width:70%">
-            <form id="account" method="post" target="_blank">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
-                 <div class="row">
-                    <div class="col">
-                        <label for="author"><strong>Author</strong></label>
-                        <input class="form-control" id="author" type="text" value=@User.Identity.Name placeholder=@User.Identity.Name readonly>
-                    </div>
-                    <div class="col">
-                        <label for="customerId"><strong>Customer</strong></label>
-                        <input class="form-control" id="customerId" type="text" value=@customerID placeholder=@customerID readonly>
-                    </div>
-                    <div class="col">
-                        <label for="buildings"><strong>Building</strong></label>
-                        <select class="custom-select" name="buildings " id="buildings" required>
-                            <option value="">Choose a Building</option>
-                            @foreach (var b in clientBuildings)
-                            {
-                                <option value=@b>building#@b.id</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="batteries"><strong>Battery</strong></label>
-                        <select class="custom-select" name="batteries " id="batteries" required>
-                            <option value="">Choose a Battery</option>
-                            @foreach (var b in clientBatteries)
-                            {
-                                <option value=@b>battery#@b.id</option>
-                            }
-                        </select>
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <label for="author"><strong>Author</strong></label>
+                    <input class="form-control" id="author" type="text" name="author" value=@User.Identity.Name placeholder=@User.Identity.Name readonly>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="columns"><strong>Column</strong></label>
-                        <select class="custom-select" name="columns " id="columns">
+                <div class="col">
+                    <label for="customerId"><strong>Customer</strong></label>
+                    <input class="form-control" id="customerId" type="text" name="customerID" value=@customerID placeholder=@customerID readonly>
+                </div>
+                <div class="col">
+                    <label for="buildings"><strong>Building</strong></label>
+                    <select class="custom-select" name="buildings " id="buildings" required>
+                        <option value="">Choose a Building</option>
+                        @foreach (var b in clientBuildings)
+                        {
+                            <option value=@b.id>building#@b.id</option>
+                        }
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="batteries"><strong>Battery</strong></label>
+                    <select class="custom-select" name="batteries " id="batteries" required>
+                        <option value="">Choose a Battery</option>
+                        @foreach (var b in clientBatteries)
+                        {
+                            <option value=@b>battery#@b.id</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="columns"><strong>Column</strong></label>
+                    <select class="custom-select" name="columns " id="columns">
+                        <option value="">None</option>
+                        @foreach (var c in clientColumns)
+                        {
+                            <option value=@c>columns#@c.id</option>
+                        }
+                    </select>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label for="elevators"><strong>Elevator</strong></label>
+                        <select class="custom-select" name="elevators " id="elevators">
                             <option value="">None</option>
-                            @foreach (var c in clientColumns)
+                            @foreach (var e in clientElevators)
                             {
-                                <option value=@c>columns#@c.id</option>
+                                <option value=@e>elevators#@e.id</option>
                             }
                         </select>
                     </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <label for="elevators"><strong>Elevator</strong></label>
-                            <select class="custom-select" name="elevators " id="elevators">
-                                <option value="">None</option>
-                                @foreach (var e in clientElevators)
-                                {
-                                    <option value=@e>elevators#@e.id</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
                 </div>
-                <br>
-                <!-- Message input -->
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label" for="reports"><strong>Report</strong></label>
-                        <textarea class="form-control" id="reports" rows="4"></textarea>
-                    </div>
+            </div>
+            <br>
+            <!-- Message input -->
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="reports"><strong>Report</strong></label>
+                    <textarea class="form-control" id="reports" rows="4"></textarea>
                 </div>
+            </div>
 
-                <!-- Submit button -->
-                <br>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary mb-4" onclick="sendIntervention()">Submit Intervention</button>
-                </div>
-            </form>
+            <!-- Submit button -->
+            <br>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mb-4" onclick="sendIntervention();">Submit Intervention</button>
+            </div>
         </div>
     </div>
 </div>
-<script>
-    function showBuilding() {
-        $('#pills-tab a[href="#pills-building"]').tab('show')
-    }
-    function showBattery() {
-        $('#pills-tab a[href="#pills-battery"]').tab('show')
-    }
-    function showColumn() {
-        $('#pills-tab a[href="#pills-column"]').tab('show')
-    }
-    function prepareIntervention() {
-        console.log("welcome hello");
-        @*$('#pills-tab a[href="#pills-intervention"]').tab('show')*@
-    }
-    function sendIntervention() {
-        var author = document.getElementById("author").value;
-        var customerId = document.getElementById("customerId").value;
-        var buildingId = document.getElementById("buildings").value;
-        var batteryId = document.getElementById("batteries").value;
-        var columnId = document.getElementById("columns").value;
-        var elevatorId = document.getElementById("elevators").value;
-        var report = document.getElementById("reports").value;
-        const intervention = {
-            "author": 1,
-            "start_date": "2021-08-24 14:00:21",
-            "end_date": "2021-08-24 14:00:21",
-            "result": "Incomplete",
-            "report": "123",
-            "status": "Pending",
-            "customer_id": 1,
-            "building_id": 1,
-            "battery_id": 1,
-            "column_id": 1,
-            "elevator_id": 1,
-            "employee_id": 1
-        };
-        const putMethod = {
-            method: 'POST', // Method itself
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8' // Indicates the content
-            },
-            body: JSON.stringify(intervention) // We send data in JSON format
-        }
-        // make the HTTP put request using fetch api
-        fetch("https://hidden-woodland-68127.herokuapp.com/api/interventions", putMethod)
-            .then(response => response.json())
-            .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-            .catch(err => console.log(err)) // Do something with the error
-    }
-</script>
