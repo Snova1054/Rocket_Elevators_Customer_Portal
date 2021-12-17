@@ -108,10 +108,10 @@ using Microsoft.AspNetCore.Identity;
     client.DefaultRequestHeaders.Accept.Add(
         new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
     client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
-    var customerID = await client.GetFromJsonAsync<Int32>("https://localhost:5001/api/customers/" + @User.Identity.Name);
-    List<Building> clientBuildings = await client.GetFromJsonAsync<List<Building>>("https://localhost:5001/api/buildings/customer/" + customerID);
+    var customerID = await client.GetFromJsonAsync<Int32>("https://hidden-woodland-68127.herokuapp.com/api/customers/" + @User.Identity.Name);
+    List<Building> clientBuildings = await client.GetFromJsonAsync<List<Building>>("https://hidden-woodland-68127.herokuapp.com/api/buildings/customer/" + customerID);
 
-    List<Battery> dumpBatteriesList = await client.GetFromJsonAsync<List<Battery>>("https://localhost:5001/api/batteries");
+    List<Battery> dumpBatteriesList = await client.GetFromJsonAsync<List<Battery>>("https://hidden-woodland-68127.herokuapp.com/api/batteries");
 
 
     List<Battery> clientBatteries = new List<Battery>();
@@ -121,7 +121,7 @@ using Microsoft.AspNetCore.Identity;
     }
 
 
-    List<Column> dumpColumnsList = await client.GetFromJsonAsync<List<Column>>("https://localhost:5001/api/columns");
+    List<Column> dumpColumnsList = await client.GetFromJsonAsync<List<Column>>("https://hidden-woodland-68127.herokuapp.com/api/columns");
     List<Column> clientColumns = new List<Column>();
     foreach (var b in clientBatteries)
     {
@@ -129,7 +129,7 @@ using Microsoft.AspNetCore.Identity;
     }
 
 
-    List<Elevator> dumpElevatorsList = await client.GetFromJsonAsync<List<Elevator>>("https://localhost:5001/api/elevators");
+    List<Elevator> dumpElevatorsList = await client.GetFromJsonAsync<List<Elevator>>("https://hidden-woodland-68127.herokuapp.com/api/elevators");
     List<Elevator> clientElevators = new List<Elevator>();
     foreach (var c in clientColumns)
     {
