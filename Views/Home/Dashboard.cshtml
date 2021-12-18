@@ -45,102 +45,8 @@
         clientElevators.AddRange(dumpElevatorsList.Where(elevator => elevator.column_id == c.id).ToList());
     }
 
-
-
 }
-<script>
-    function showBuilding() {
-        $('#pills-tab a[href="#pills-building"]').tab('show')
-    }
-    function showBattery() {
-        $('#pills-tab a[href="#pills-battery"]').tab('show')
-    }
-    function showColumn() {
-        $('#pills-tab a[href="#pills-column"]').tab('show')
-    }
-    function prepareIntervention() {
-        console.log("welcome hello people");
-        @*$('#pills-tab a[href="#pills-intervention"]').tab('show')*@
-    }
-    function sendIntervention() {
-        var author = document.getElementById("author").value;
-        var customerId = document.getElementById("customerId").value;
-        var buildingId = document.getElementById("buildings").value;
-        var batteryId = document.getElementById("batteries").value;
-        var columnId = document.getElementById("columns").value;
-        var elevatorId = document.getElementById("elevators").value;
-        var report = document.getElementById("reports").value;
-        const intervention = {
-            "author": "danidanidanidani",
-            "start_date": "2018-03-22T11:32:08",
-            "end_date": "2018-03-22T11:32:08",
-            "result": "Incomplete",
-            "report": "report",
-            "status": "Pending",
-            "customer_id": 1,
-            "building_id": 1,
-            "battery_id": 1,
-            "column_id": 1,
-            "elevator_id": 1,
-            "employee_id": 1
-        };
 
-
-        console.log("are you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you here");
-        const putMethod = {
-            method: 'POST', // Method itself
-        }
-        var interventionJson = JSON.stringify(intervention);
-        fetch(`/Home/Dashboard?interventionString=${intervention}`, putMethod)
-
-        console.log("wow pogo 2")
-
-        //var yes = JSON.stringify(intervention);
-        @*$.ajax({
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                author: "author",
-                start_date: "2018-03-22T11:32:08",
-                end_date: "2018-03-22T11:32:08",
-                result: "Incomplete",
-                report: "report",
-                status: "Pending",
-                customer_id: 1,
-                building_id: 1,
-                battery_id: 1,
-                column_id: 1,
-                elevator_id: 1,
-                employee_id: 1
-            },
-            url: '/Home/Dashboard',
-            contentType: 'application/json',
-            success: function (response) {
-                alert("criss")
-                console.log("yes");
-            },
-            error: function (response) {
-                alert("pogo")
-                console.log("yes but no");
-            }
-        });*@
-
-        @*console.log("wow pogo");*@
-
-        @*const putMethod = {
-            method: 'POST', // Method itself
-            headers: new Headers({
-                'Content-Type': 'application/json' // Indicates the content
-            }),
-            body: JSON.stringify(intervention) // We send data in JSON format
-        }
-        // make the HTTP post request using fetch api
-        fetch("https://hidden-woodland-68127.herokuapp.com/api/interventions", putMethod)
-            .then(response => response.json())
-            .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-            .catch(err => console.log(err)) // Do something with the error*@
-    }
-</script>
 <div class="text-center d-flex justify-content-center">
     <h1 class="display-4">Welcome @User.Identity.Name!</h1>
 </div>
@@ -556,7 +462,7 @@
                         <option value="">Choose a Battery</option>
                         @foreach (var b in clientBatteries)
                         {
-                            <option value=@b>battery#@b.id</option>
+                            <option value=@b.id>battery#@b.id</option>
                         }
                     </select>
                 </div>
@@ -568,7 +474,7 @@
                         <option value="">None</option>
                         @foreach (var c in clientColumns)
                         {
-                            <option value=@c>columns#@c.id</option>
+                            <option value=@c.id>columns#@c.id</option>
                         }
                     </select>
                 </div>
@@ -579,7 +485,7 @@
                             <option value="">None</option>
                             @foreach (var e in clientElevators)
                             {
-                                <option value=@e>elevators#@e.id</option>
+                                <option value=@e.id>elevators#@e.id</option>
                             }
                         </select>
                     </div>
@@ -602,3 +508,96 @@
         </div>
     </div>
 </div>
+<script>
+    function showBuilding() {
+        $('#pills-tab a[href="#pills-building"]').tab('show')
+    }
+    function showBattery() {
+        $('#pills-tab a[href="#pills-battery"]').tab('show')
+    }
+    function showColumn() {
+        $('#pills-tab a[href="#pills-column"]').tab('show')
+    }
+    function prepareIntervention() {
+        console.log("welcome hello people");
+        @*$('#pills-tab a[href="#pills-intervention"]').tab('show')*@
+    }
+    function sendIntervention() {
+        var author = document.getElementById("author").value;
+        var customerId = document.getElementById("customerId").value;
+        var buildingId = document.getElementById("buildings").value;
+        var batteryId = document.getElementById("batteries").value;
+        var columnId = document.getElementById("columns").value;
+        var elevatorId = document.getElementById("elevators").value;
+        var report = document.getElementById("reports").value;
+        const intervention = {
+            "author": "danidanidanidani",
+            "start_date": "2018-03-22T11:32:08",
+            "end_date": "2018-03-22T11:32:08",
+            "result": "Incomplete",
+            "report": "report",
+            "status": "Pending",
+            "customer_id": 1,
+            "building_id": 1,
+            "battery_id": 1,
+            "column_id": 1,
+            "elevator_id": 1,
+            "employee_id": 1
+        };
+
+
+        console.log("are you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you here");
+        const putMethod = {
+            method: 'POST', // Method itself
+        }
+        var interventionJson = JSON.stringify(intervention);
+        fetch(`/Home/Dashboard?author=${author}&start_date=${null}&end_date=${null}&result=Incomplete&report=${report}&status=Pending&customer_id=${customerId}&building_id=${buildingId}&battery_id=${batteryId}&column_id=${columnId}&elevator_id=${elevatorId}&employee_id=${null}`, putMethod)
+
+        console.log("wow pogo 2")
+
+        //var yes = JSON.stringify(intervention);
+        @*$.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                author: "author",
+                start_date: "2018-03-22T11:32:08",
+                end_date: "2018-03-22T11:32:08",
+                result: "Incomplete",
+                report: "report",
+                status: "Pending",
+                customer_id: 1,
+                building_id: 1,
+                battery_id: 1,
+                column_id: 1,
+                elevator_id: 1,
+                employee_id: 1
+            },
+            url: '/Home/Dashboard',
+            contentType: 'application/json',
+            success: function (response) {
+                alert("criss")
+                console.log("yes");
+            },
+            error: function (response) {
+                alert("pogo")
+                console.log("yes but no");
+            }
+        });*@
+
+        @*console.log("wow pogo");*@
+
+        @*const putMethod = {
+            method: 'POST', // Method itself
+            headers: new Headers({
+                'Content-Type': 'application/json' // Indicates the content
+            }),
+            body: JSON.stringify(intervention) // We send data in JSON format
+        }
+        // make the HTTP post request using fetch api
+        fetch("https://hidden-woodland-68127.herokuapp.com/api/interventions", putMethod)
+            .then(response => response.json())
+            .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
+            .catch(err => console.log(err)) // Do something with the error*@
+    }
+</script>

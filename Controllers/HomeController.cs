@@ -39,22 +39,29 @@ namespace Rocket_Elevators_Customer_Portal.Controllers
             return View();
         }
 
-        //public IActionResult Dashboard(string author, string start_date, string end_date, string result, string status, int customer_id, int building_id, int battery_id, int column_id, int elevator_id, int employee_id)
-        public IActionResult Dashboard(string interventionString)
+        public IActionResult Dashboard(string author, string start_date, string end_date, string result, string report, string status, string customer_id, string building_id, string battery_id, string column_id, string elevator_id, string employee_id)
+        //public IActionResult Dashboard(string interventionString)
         {
-            if(interventionString != "")
-            {
-                Intervention intervention = JsonSerializer.Deserialize<Intervention>(interventionString);
-                Console.WriteLine("allo");
-                Console.WriteLine(intervention.status);
+            //Console.WriteLine("allo");
+            //Console.WriteLine(customer_id);
+            //Console.WriteLine(building_id);
+            //Console.WriteLine(battery_id);
+            //Console.WriteLine(column_id);
+            //Console.WriteLine(elevator_id);
 
-            }
-            
-            //Intervention yesyes = Convert.
-            //Console.WriteLine(yes.status);
-            Intervention clientIntervention = new Intervention() {author = "daniel", start_date = DateTime.Now, end_date = DateTime.Now, result = "oui", report = "non", status = "ok", customer_id = 1, building_id = 1, battery_id = 1, column_id = 1, elevator_id = 1, employee_id = 1};
-            //Console.WriteLine(clientIntervention.author);
+            Intervention clientIntervention = new Intervention() {author = author, start_date = null, end_date = null, result = result, report = report, status = status, customer_id = Convert.ToInt32(customer_id), building_id = Convert.ToInt32(building_id), battery_id = Convert.ToInt32(battery_id), column_id = Convert.ToInt32(column_id), elevator_id = Convert.ToInt32(elevator_id), employee_id = null};
+            Console.WriteLine(clientIntervention.author);
             //my own cors policy
+            //var values = new Dictionary<string, string>
+            //{
+            //    { "thing1", "hello" },
+            //    { "thing2", "world" }
+            //};
+
+            //var content = new FormUrlEncodedContent(values);
+            string Json = JsonSerializer.Serialize(clientIntervention);
+
+            client.PostAsJsonAsync("https://hidden-woodland-68127.herokuapp.com/api/interventions", Json);
             return View();
         }
 
