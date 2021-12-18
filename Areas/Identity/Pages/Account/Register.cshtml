@@ -4,11 +4,13 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
-    <div class="col-md-4">
+<div class="row d-flex justify-content-around">
+    <div class="col-md" style="padding:0px">
+        <img src="https://rocket-elevators.xyz/images/WorldElevator.jpg">
+    </div>
+    <div class="col-md" style="padding:0px">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h1>@ViewData["Title"]</h1>
             <h4>Create a new account.</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -30,10 +32,8 @@
             <button type="submit" class="btn btn-primary" onclick="wait_before_doing_click()">Register</button>
         </form>
     </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            
-        </section>
+    <div class="col-md" style="padding:0px">
+        <img src="https://rocket-elevators.xyz/images/Hydrogen.jpg">
     </div>
 </div>
 
