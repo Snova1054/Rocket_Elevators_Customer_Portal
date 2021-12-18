@@ -47,490 +47,422 @@
 
 }
 
-<div class="text-center d-flex justify-content-center">
-    <h1 class="display-4">Welcome @User.Identity.Name!</h1>
-</div>
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="pills-building-tab" data-toggle="pill" href="#pills-building" role="tab" aria-controls="pills-building" aria-selected="true">Buildings</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-battery-tab" data-toggle="pill" href="#pills-battery" role="tab" aria-controls="pills-battery" aria-selected="false">Batteries</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-column-tab" data-toggle="pill" href="#pills-column" role="tab" aria-controls="pills-column" aria-selected="false">Columns</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-elevator-tab" data-toggle="pill" href="#pills-elevator" role="tab" aria-controls="pills-elevator" aria-selected="false">Elevators</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-intervention-tab" data-toggle="pill" href="#pills-intervention" role="tab" aria-controls="pills-intervention" aria-selected="false">Create an Intervention</a>
-    </li>
-</ul>
-<div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
-        <div class="d-flex justify-content-center">
-            <table class="table table-hover table-bordered table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th>
-                            ID
-                        </th>
-                        <th>
-                            Building Admin
-                        </th>
-                        <th>
-                            Building Email
-                        </th>
-                        <th>
-                            Building Phone
-                        </th>
-                        <th>
-                            Building Technician
-                        </th>
-                        <th>
-                            Technician Email
-                        </th>
-                        <th>
-                            Technician Phone
-                        </th>
-                        <th>
-                            Created At
-                        </th>
-                        <th>
-                            Updated At
-                        </th>
-                        <th>
-                            Customer #
-                        </th>
-                        <th>
-                            Address #
-                        </th>
-                        @*<th></th>*@
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in clientBuildings)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.id)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.full_name_of_the_building_administrator)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.email_of_the_administrator_of_the_building)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.phone_number_of_the_building_administrator)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.full_name_of_the_technical_contact_for_the_building)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.technical_contact_email_for_the_building)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.technical_contact_phone_for_the_building)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.created_at)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.updated_at)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.customer_id)
-                            </td>
-                            <td>
-                                <a href="#">@Html.DisplayFor(modelItem => item.address_id)</a>
-                            </td>
-                            @*<td>
-                                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-                                </td>*@
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+<div class="container">
+    <div class="text-center d-flex justify-content-center">
+        <h1 class="display-4">Welcome @User.Identity.Name!</h1>
     </div>
-    <div class="tab-pane fade" id="pills-battery" role="tabpanel" aria-labelledby="pills-battery-tab">
-        <div class="d-flex justify-content-center">
-            <table class="table table-hover table-bordered table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th>
-                            ID
-                        </th>
-                        <th>
-                            Type
-                        </th>
-                        <th>
-                            Status
-                        </th>
-                        <th>
-                            Commissioned
-                        </th>
-                        <th>
-                            Last Inspection
-                        </th>
-                        <th>
-                            Certificate #
-                        </th>
-                        <th>
-                            Information
-                        </th>
-                        <th>
-                            Notes
-                        </th>
-                        <th>
-                            Created At
-                        </th>
-                        <th>
-                            Updated At
-                        </th>
-                        <th>
-                            Building #
-                        </th>
-                        @*<th></th>*@
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in clientBatteries)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.id)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.entity_type)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.status)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.date_of_commissioning)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.date_of_last_inspection)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.certificate_of_operations)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.information)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.notes)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.created_at)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.updated_at)
-                            </td>
-                            <td>
-                                <a href="#" onclick="showBuilding();">@Html.DisplayFor(modelItem => item.building_id)</a>
-                            </td>
-                            @*<td>
-                                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-                                </td>*@
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="pills-column" role="tabpanel" aria-labelledby="pills-column-tab">
-        <div class="d-flex justify-content-center">
-            <table class="table table-hover table-bordered table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th>
-                            ID
-                        </th>
-                        <th>
-                            Type
-                        </th>
-                        <th>
-                            Floors
-                        </th>
-                        <th>
-                            Status
-                        </th>
-                        <th>
-                            Information
-                        </th>
-                        <th>
-                            Notes
-                        </th>
-                        <th>
-                            Created At
-                        </th>
-                        <th>
-                            Updated At
-                        </th>
-                        <th>
-                            Battery#
-                        </th>
-                        @*<th></th>*@
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in clientColumns)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.id)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.entity_type)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.number_of_floors_served)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.status)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.information)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.notes)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.created_at)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.updated_at)
-                            </td>
-                            <td>
-                                <a href="#" onclick="showBattery();">@Html.DisplayFor(modelItem => item.battery_id)</a>
-                            </td>
-                            @*<td>
-                                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-                                </td>*@
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="pills-elevator" role="tabpanel" aria-labelledby="pills-elevator-tab">
-        <div class="d-flex justify-content-center">
-            <table class="table table-hover table-bordered table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th>
-                            ID
-                        </th>
-                        <th>
-                            Serial #
-                        </th>
-                        <th>
-                            Model
-                        </th>
-                        <th>
-                            Type
-                        </th>
-                        <th>
-                            Status
-                        </th>
-                        <th>
-                            Commissioned
-                        </th>
-                        <th>
-                            Last Inspection
-                        </th>
-                        <th>
-                            Certificate
-                        </th>
-                        <th>
-                            Information
-                        </th>
-                        <th>
-                            Notes
-                        </th>
-                        <th>
-                            Created At
-                        </th>
-                        <th>
-                            Updated At
-                        </th>
-                        <th>
-                            Column #
-                        </th>
-                        <th>
-                            Intervention
-                        </th>
-                        @*<th></th>*@
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in clientElevators)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.id)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.serial_number)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.model)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.entity_type)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.status)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.date_of_commissioning)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.date_of_last_inspection)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.certificate_of_inspection)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.information)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Notes)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.created_at)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.updated_at)
-                            </td>
-                            <td>
-                                <a href="#" onclick="showColumn();">@Html.DisplayFor(modelItem => item.column_id)</a>
-                            </td>
-                            <td>
-                                <a href="#" onclick="prepareIntervention();"> Created an Intervention</a>
-                            </td>
-                            @*<td>
-                                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-                                </td>*@
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="pills-intervention" role="tabpanel" aria-labelledby="pills-intervention-tab">
-        <div>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-building-tab" data-toggle="pill" href="#pills-building" role="tab" aria-controls="pills-building" aria-selected="true">Buildings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-battery-tab" data-toggle="pill" href="#pills-battery" role="tab" aria-controls="pills-battery" aria-selected="false">Batteries</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-column-tab" data-toggle="pill" href="#pills-column" role="tab" aria-controls="pills-column" aria-selected="false">Columns</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-elevator-tab" data-toggle="pill" href="#pills-elevator" role="tab" aria-controls="pills-elevator" aria-selected="false">Elevators</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-intervention-tab" data-toggle="pill" href="#pills-intervention" role="tab" aria-controls="pills-intervention" aria-selected="false">Create an Intervention</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
             <div class="d-flex justify-content-center">
-                <h1 class="display-3">Intervention Page</h1>
+                <table class="table table-hover table-bordered table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Building Admin
+                            </th>
+                            <th>
+                                Building Email
+                            </th>
+                            <th>
+                                Building Phone
+                            </th>
+                            <th>
+                                Building Technician
+                            </th>
+                            <th>
+                                Technician Email
+                            </th>
+                            <th>
+                                Technician Phone
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in clientBuildings)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.full_name_of_the_building_administrator)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.email_of_the_administrator_of_the_building)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.phone_number_of_the_building_administrator)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.full_name_of_the_technical_contact_for_the_building)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.technical_contact_email_for_the_building)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.technical_contact_phone_for_the_building)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
-            <hr style="width:70%">
+        </div>
+        <div class="tab-pane fade" id="pills-battery" role="tabpanel" aria-labelledby="pills-battery-tab">
+            <div class="d-flex justify-content-center">
+                <table class="table table-hover table-bordered table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Commissioned
+                            </th>
+                            <th>
+                                Last Inspection
+                            </th>
+                            <th>
+                                Certificate #
+                            </th>
+                            <th>
+                                Notes
+                            </th>
+                            <th>
+                                Building #
+                            </th>
+                            <th>
+                                Intervention
+                            </th>
+                            @*<th></th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in clientBatteries)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.entity_type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.date_of_commissioning)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.date_of_last_inspection)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.certificate_of_operations)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.notes)
+                                </td>
+                                <td>
+                                    <a href="#" onclick="showBuilding();">@Html.DisplayFor(modelItem => item.building_id)</a>
+                                </td>
+                                <td>
+                                    <a href="#" onclick="prepareIntervention(null , @Html.DisplayFor(modelItem => item.id), null);"> Created an Intervention</a>
+                                </td>
+                                @*<td>
+                                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                                    </td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-column" role="tabpanel" aria-labelledby="pills-column-tab">
+            <div class="d-flex justify-content-center">
+                <table class="table table-hover table-bordered table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                            <th>
+                                Floors
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Notes
+                            </th>
+                            <th>
+                                Battery#
+                            </th>
+                            <th>
+                                Intervention
+                            </th>
+                            @*<th></th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in clientColumns)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.entity_type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.number_of_floors_served)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.notes)
+                                </td>
+                                <td>
+                                    <a href="#" onclick="showBattery();">@Html.DisplayFor(modelItem => item.battery_id)</a>
+                                </td>
+                                <td>
+                                    <a href="#" onclick="prepareIntervention(@Html.DisplayFor(modelItem => item.id), @Html.DisplayFor(modelItem => item.battery_id), null);"> Created an Intervention</a>
+                                </td>
+                                @*<td>
+                                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                                    </td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-elevator" role="tabpanel" aria-labelledby="pills-elevator-tab">
+            <div class="d-flex justify-content-center">
+                <table class="table table-hover table-bordered table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Serial #
+                            </th>
+                            <th>
+                                Model
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Commissioned
+                            </th>
+                            <th>
+                                Last Inspection
+                            </th>
+                            <th>
+                                Certificate
+                            </th>
+                            <th>
+                                Notes
+                            </th>
+                            <th>
+                                Column #
+                            </th>
+                            <th>
+                                Intervention
+                            </th>
+                            @*<th></th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in clientElevators)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.serial_number)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.model)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.entity_type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.date_of_commissioning)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.date_of_last_inspection)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.certificate_of_inspection)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Notes)
+                                </td>
+                                <td>
+                                    <a href="#" onclick="showColumn();">@Html.DisplayFor(modelItem => item.column_id)</a>
+                                </td>
+                                <td>
+                                    <a href="#" onclick="prepareIntervention(@Html.DisplayFor(modelItem => item.column_id), @clientColumns[item.column_id-(item.column_id-1)].battery_id, @Html.DisplayFor(modelItem => item.id));"> Created an Intervention</a>
+                                </td>
+                                @*<td>
+                                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                                    </td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-intervention" role="tabpanel" aria-labelledby="pills-intervention-tab">
+            <div>
+                <hr style="width:70%">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
-            <div class="row">
-                <div class="col">
-                    <label for="author"><strong>Author</strong></label>
-                    <input class="form-control" id="author" type="text" name="author" value=@User.Identity.Name placeholder=@User.Identity.Name readonly>
-                </div>
-                <div class="col">
-                    <label for="customerId"><strong>Customer</strong></label>
-                    <input class="form-control" id="customerId" type="text" name="customerID" value=@customerID placeholder=@customerID readonly>
-                </div>
-                <div class="col">
-                    <label for="buildings"><strong>Building</strong></label>
-                    <select class="custom-select" name="buildings " id="buildings" required>
-                        <option value="">Choose a Building</option>
-                        @foreach (var b in clientBuildings)
-                        {
-                            <option value=@b.id>building#@b.id</option>
-                        }
-                    </select>
-                </div>
-                <div class="col">
-                    <label for="batteries"><strong>Battery</strong></label>
-                    <select class="custom-select" name="batteries " id="batteries" required>
-                        <option value="">Choose a Battery</option>
-                        @foreach (var b in clientBatteries)
-                        {
-                            <option value=@b.id>battery#@b.id</option>
-                        }
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label for="columns"><strong>Column</strong></label>
-                    <select class="custom-select" name="columns " id="columns">
-                        <option value="">None</option>
-                        @foreach (var c in clientColumns)
-                        {
-                            <option value=@c.id>columns#@c.id</option>
-                        }
-                    </select>
-                </div>
-                <div class="col">
-                    <div class="form-outline">
-                        <label for="elevators"><strong>Elevator</strong></label>
-                        <select class="custom-select" name="elevators " id="elevators">
-                            <option value="">None</option>
-                            @foreach (var e in clientElevators)
+                <div class="row">
+                    <div class="col">
+                        <label for="author"><strong>Author</strong></label>
+                        <input class="form-control" id="author" type="text" name="author" value=@User.Identity.Name placeholder=@User.Identity.Name readonly>
+                    </div>
+                    <div class="col">
+                        <label for="customerId"><strong>Customer</strong></label>
+                        <input class="form-control" id="customerId" type="text" name="customerID" value=@customerID placeholder=@customerID readonly>
+                    </div>
+                    <div class="col">
+                        <label for="buildings"><strong>Building</strong></label>
+                        <select class="custom-select" name="buildings " id="buildings" required>
+                            <option value="">Choose a Building</option>
+                            @foreach (var b in clientBuildings)
                             {
-                                <option value=@e.id>elevators#@e.id</option>
+                                <option value=@b.id>building#@b.id</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="batteries"><strong>Battery</strong></label>
+                        <select class="custom-select" name="batteries " id="batteries" required>
+                            <option value="">Choose a Battery</option>
+                            @foreach (var b in clientBatteries)
+                            {
+                                <option value=@b.id>battery#@b.id</option>
                             }
                         </select>
                     </div>
                 </div>
-            </div>
-            <br>
-            <!-- Message input -->
-            <div class="row">
-                <div class="col">
-                    <label class="form-label" for="reports"><strong>Report</strong></label>
-                    <textarea class="form-control" id="reports" rows="4"></textarea>
+                <div class="row">
+                    <div class="col">
+                        <label for="columns"><strong>Column</strong></label>
+                        <select class="custom-select" name="columns " id="columns">
+                            <option value="">None</option>
+                            @foreach (var c in clientColumns)
+                            {
+                                <option value=@c.id>columns#@c.id</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label for="elevators"><strong>Elevator</strong></label>
+                            <select class="custom-select" name="elevators " id="elevators">
+                                <option value="">None</option>
+                                @foreach (var e in clientElevators)
+                                {
+                                    <option value=@e.id>elevators#@e.id</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!-- Message input -->
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label" for="reports"><strong>Report</strong></label>
+                        <textarea class="form-control" id="reports" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mb-4" onclick="sendIntervention();">Submit Intervention</button>
                 </div>
             </div>
-
-            <!-- Submit button -->
-            <br>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary mb-4" onclick="sendIntervention();">Submit Intervention</button>
-            </div>
+        </div>
         </div>
     </div>
-</div>
-<script>
-    function showBuilding() {
-        $('#pills-tab a[href="#pills-building"]').tab('show')
-    }
-    function showBattery() {
-        $('#pills-tab a[href="#pills-battery"]').tab('show')
-    }
-    function showColumn() {
-        $('#pills-tab a[href="#pills-column"]').tab('show')
-    }
-    function prepareIntervention() {
-    }
-    function sendIntervention() {
-        var author = document.getElementById("author").value;
-        var customerId = document.getElementById("customerId").value;
-        var buildingId = document.getElementById("buildings").value;
-        var batteryId = document.getElementById("batteries").value;
-        var columnId = document.getElementById("columns").value;
-        var elevatorId = document.getElementById("elevators").value;
-        var report = document.getElementById("reports").value;
-        const putMethod = {
-            method: 'POST', // Method itself
+    <script>
+        function showBuilding() {
+            $('#pills-tab a[href="#pills-building"]').tab('show')
         }
-        fetch(`/Home/Dashboard?author=${author}&start_date=${null}&end_date=${null}&result=Incomplete&report=${report}&status=Pending&customer_id=${customerId}&building_id=${buildingId}&battery_id=${batteryId}&column_id=${columnId}&elevator_id=${elevatorId}&employee_id=${null}`, putMethod)
-    }
-</script>
+        function showBattery() {
+            $('#pills-tab a[href="#pills-battery"]').tab('show')
+        }
+        function showColumn() {
+            $('#pills-tab a[href="#pills-column"]').tab('show')
+        }
+        function prepareIntervention(column, battery, elevator) {
+            $('#pills-tab a[href="#pills-intervention"]').tab('show')
+            document.getElementById("buildings").value = battery;
+            document.getElementById("batteries").value = battery;
+            document.getElementById("columns").value = column;
+            document.getElementById("elevators").value = elevator;
+        }
+        function sendIntervention() {
+            var author = document.getElementById("author").value;
+            var customerId = document.getElementById("customerId").value;
+            var buildingId = document.getElementById("buildings").value;
+            var batteryId = document.getElementById("batteries").value;
+            var columnId = document.getElementById("columns").value;
+            var elevatorId = document.getElementById("elevators").value;
+            var report = document.getElementById("reports").value;
+            const putMethod = {
+                method: 'POST', // Method itself
+            }
+            fetch(`/Home/Dashboard?author=${author}&start_date=${null}&end_date=${null}&result=Incomplete&report=${report}&status=Pending&customer_id=${customerId}&building_id=${buildingId}&battery_id=${batteryId}&column_id=${columnId}&elevator_id=${elevatorId}&employee_id=${null}`, putMethod)
+        }
+    </script>
