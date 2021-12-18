@@ -10,7 +10,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-@model Tuple<IEnumerable<Tuple<Rocket_Elevators_Customer_Portal.Models.Building, Rocket_Elevators_Customer_Portal.Models.Battery, Rocket_Elevators_Customer_Portal.Models.Column, Rocket_Elevators_Customer_Portal.Models.Elevator>>, Rocket_Elevators_Customer_Portal.Views.Home.DashboardModel.InputModel>
+@model IEnumerable<Tuple<Rocket_Elevators_Customer_Portal.Models.Building, Rocket_Elevators_Customer_Portal.Models.Battery, Rocket_Elevators_Customer_Portal.Models.Column, Rocket_Elevators_Customer_Portal.Models.Elevator>>
 @{
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Accept.Clear();
@@ -519,8 +519,6 @@
         $('#pills-tab a[href="#pills-column"]').tab('show')
     }
     function prepareIntervention() {
-        console.log("welcome hello people");
-        @*$('#pills-tab a[href="#pills-intervention"]').tab('show')*@
     }
     function sendIntervention() {
         var author = document.getElementById("author").value;
@@ -530,74 +528,9 @@
         var columnId = document.getElementById("columns").value;
         var elevatorId = document.getElementById("elevators").value;
         var report = document.getElementById("reports").value;
-        const intervention = {
-            "author": "danidanidanidani",
-            "start_date": "2018-03-22T11:32:08",
-            "end_date": "2018-03-22T11:32:08",
-            "result": "Incomplete",
-            "report": "report",
-            "status": "Pending",
-            "customer_id": 1,
-            "building_id": 1,
-            "battery_id": 1,
-            "column_id": 1,
-            "elevator_id": 1,
-            "employee_id": 1
-        };
-
-
-        console.log("are you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you hereare you here");
         const putMethod = {
             method: 'POST', // Method itself
         }
-        var interventionJson = JSON.stringify(intervention);
         fetch(`/Home/Dashboard?author=${author}&start_date=${null}&end_date=${null}&result=Incomplete&report=${report}&status=Pending&customer_id=${customerId}&building_id=${buildingId}&battery_id=${batteryId}&column_id=${columnId}&elevator_id=${elevatorId}&employee_id=${null}`, putMethod)
-
-        console.log("wow pogo 2")
-
-        //var yes = JSON.stringify(intervention);
-        @*$.ajax({
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                author: "author",
-                start_date: "2018-03-22T11:32:08",
-                end_date: "2018-03-22T11:32:08",
-                result: "Incomplete",
-                report: "report",
-                status: "Pending",
-                customer_id: 1,
-                building_id: 1,
-                battery_id: 1,
-                column_id: 1,
-                elevator_id: 1,
-                employee_id: 1
-            },
-            url: '/Home/Dashboard',
-            contentType: 'application/json',
-            success: function (response) {
-                alert("criss")
-                console.log("yes");
-            },
-            error: function (response) {
-                alert("pogo")
-                console.log("yes but no");
-            }
-        });*@
-
-        @*console.log("wow pogo");*@
-
-        @*const putMethod = {
-            method: 'POST', // Method itself
-            headers: new Headers({
-                'Content-Type': 'application/json' // Indicates the content
-            }),
-            body: JSON.stringify(intervention) // We send data in JSON format
-        }
-        // make the HTTP post request using fetch api
-        fetch("https://hidden-woodland-68127.herokuapp.com/api/interventions", putMethod)
-            .then(response => response.json())
-            .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-            .catch(err => console.log(err)) // Do something with the error*@
     }
 </script>
