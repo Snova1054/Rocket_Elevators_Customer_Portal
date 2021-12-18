@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj",
+  "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Rocket_Elevators_Customer_Portal.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,83 +15619,83 @@
   "RootNamespace": "Rocket_Elevators_Customer_Portal",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\Home\\Dashboard.cshtml",
-      "TargetPath": "Views\\Home\\Dashboard.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\Shared\\_LoginPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Views\\Shared\\Error.cshtml",
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\istar\\Documents\\11-week\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Views\\Home\\Dashboard.cshtml",
+      "TargetPath": "Views\\Home\\Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\iStar\\Documents\\CodeBoxx-RocketElevator\\week-11\\Rocket_Elevators_Customer_Portal\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     }
   ],
